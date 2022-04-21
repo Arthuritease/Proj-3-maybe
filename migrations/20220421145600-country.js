@@ -15,17 +15,15 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db) {
-  return db.createTable('products',{
-    id: { type: 'int', primaryKey:true, autoIncrement:true, unsigned: true},
-    name: { type: 'string', length:100, notNull:false},
-    cost: 'int',
-    description:'text'
-})
+  return db.createTable('country',{
+    country_id: { type: 'smallint', primaryKey:true, autoIncrement:true, unsigned: true},
+    country_title:{type:'char',length:80, notNull:true},
+    continent:{type:'char', length:20,notNull:true}
+  })
 };
 
-
 exports.down = function(db) {
-  return db.dropTable('products');
+  return db.dropTable('country')
 };
 
 exports._meta = {
