@@ -27,20 +27,25 @@ router.get('/create', async (req, res) => {
 })
 
 // keeps returning error unless I remove POST
-router.post('/create', async(req,res)=>{
-    const countryForm = createCountryForm();
-    countryForm.handle(req, {
-        'success': async (form) => {
-            const country = new Country();
-            country.set('id', form.data.ID);
-            country.set('country_title', form.data.Name);
-            country.set('continent', form.data.Continent);
-            await country.save();
-            res.redirect('/country');
+// router.post('/create', async(req,res)=>{
+//     const countryForm = createCountryForm();
+//     countryForm.handle(req, {
+//         'success': async (form) => {
+//             const country = new Country();
+//             country.set('id', form.data.ID);
+//             country.set('country_title', form.data.Name);
+//             country.set('continent', form.data.Continent);
+//             await country.save();
+//             res.redirect('/country');
 
-        }
-    })
-})
+//         },
+//         'error': async (form) => {
+//             res.render('products/create', {
+//                 'form': form.toHTML(bootstrapField)
+//             })
+//         }
+//     })
+// })
 
 
 module.exports = router;
