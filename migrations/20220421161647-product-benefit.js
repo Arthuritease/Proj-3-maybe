@@ -16,7 +16,7 @@ exports.setup = function(options, seedLink) {
 
 exports.up = function (db) {
   return db.createTable('product_benefit', {
-      product_benefit_id: { type: 'smallint', primaryKey: true, autoIncrement: true },
+      id: { type: 'smallint', primaryKey: true, autoIncrement: true, unsigned:true },
       product_id: {
           type: 'smallint',
           notNull: true,
@@ -28,7 +28,7 @@ exports.up = function (db) {
                   onDelete: 'CASCADE',
                   onUpdate: 'RESTRICT'
               },
-              mapping: 'product_id'
+              mapping: 'id'
           }
       },
         benefit_id: {
@@ -42,7 +42,7 @@ exports.up = function (db) {
                   onDelete: 'CASCADE',
                   onUpdate: 'RESTRICT'
               },
-              mapping: 'benefit_id'
+              mapping: 'id'
           }
       }
   });

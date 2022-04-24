@@ -16,7 +16,7 @@ exports.setup = function(options, seedLink) {
 
 exports.up = function(db) {
   return db.createTable('bundle',{
-    bundle_id: { type: 'smallint', primaryKey:true, autoIncrement:true, unsigned: true},
+    id: { type: 'smallint', primaryKey:true, autoIncrement:true, unsigned: true},
     title:{type:'char',length:200, notNull:true},
     price:{type:'decimal', notNull:true}
   })

@@ -16,7 +16,7 @@ exports.setup = function(options, seedLink) {
 
 exports.up = function(db) {
   return db.createTable('type',{
-    type_id: { type: 'smallint', primaryKey:true, autoIncrement:true, unsigned: true},
+    id: { type: 'smallint', primaryKey:true, autoIncrement:true, unsigned: true},
     category:{type:'char',length:30, notNull:true},
     
   })

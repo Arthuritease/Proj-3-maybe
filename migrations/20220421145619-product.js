@@ -16,7 +16,7 @@ exports.setup = function(options, seedLink) {
 
 exports.up = function(db) {
   return db.createTable('product',{
-    product_id: { type: 'smallint', primaryKey:true, autoIncrement:true, unsigned: true},
+    id: { type: 'smallint', primaryKey:true, autoIncrement:true, unsigned: true},
     title: { type: 'char', length:50, notNull:true},
     country_id:{
       type:"smallint",
@@ -29,7 +29,7 @@ exports.up = function(db) {
           onDelete:'cascade',
           onUpdate:'restrict'
         },
-        mapping:'country_id'
+        mapping:'id'
       }
       
   },

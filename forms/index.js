@@ -24,35 +24,6 @@ var bootstrapField = function (name, object) {
     return '<div class="form-group">' + label + widget + error + '</div>';
 };
 
-// const createProduct= () => {
-//     return forms.create({
-//         'name': fields.string({
-//             required: true,
-//             errorAfterField: true,
-//             cssClasses: {
-//                 label: ['form-label']
-//             }
-//         }),
-//         'cost': fields.string({
-//             required: true,
-//             errorAfterField: true,
-//             cssClasses: {
-//                 label: ['form-label']
-//             },
-//             'validators':[validators.integer()]
-//         }),
-//         'description': fields.string({
-//             required: true,
-//             errorAfterField: true,
-//             cssClasses: {
-//                 label: ['form-label']
-//             }
-//         }),
-//     })
-// };
-
-// module.exports = { createProduct, bootstrapField };
-
 const createCountryForm = () => {
     return forms.create({
         'ID': fields.string({
@@ -60,7 +31,8 @@ const createCountryForm = () => {
             errorAfterField: true,
             cssClasses: {
                 label: ['form-label']
-            }
+            },
+            'validators':[validators.integer()]
         }),
         'Name': fields.string({
             required: true,

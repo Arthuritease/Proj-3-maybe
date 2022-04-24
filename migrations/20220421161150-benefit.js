@@ -16,7 +16,7 @@ exports.setup = function(options, seedLink) {
 
 exports.up = function(db) {
   return db.createTable('benefit',{
-    benefit_id: { type: 'smallint', primaryKey:true, autoIncrement:true, unsigned: true},
+    id: { type: 'smallint', primaryKey:true, autoIncrement:true, unsigned: true},
     results:{type:'char',length:50, notNull:true},
     days_to_notice:{type:'smallint', length:20, notNull:true}
   })

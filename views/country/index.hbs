@@ -3,11 +3,11 @@
 {{#block 'content'}}
 <table class="table">
     <thead>
+        {{!-- <h1>Take note and be sure to add country ID according to the last displayed ID</h1> --}}
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Continent</th>
-            {{!-- <th>Description</th> --}}
         </tr>
 
     </thead>
@@ -15,7 +15,7 @@
         {{#each country}}
             <tr>
                 <td>
-                    {{this.country_id}}
+                    {{this.id}}
                 </td>
                 <td>
                     {{this.country_title}}
