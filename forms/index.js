@@ -24,24 +24,52 @@ var bootstrapField = function (name, object) {
     return '<div class="form-group">' + label + widget + error + '</div>';
 };
 
-const createProduct= () => {
+// const createProduct= () => {
+//     return forms.create({
+//         'name': fields.string({
+//             required: true,
+//             errorAfterField: true,
+//             cssClasses: {
+//                 label: ['form-label']
+//             }
+//         }),
+//         'cost': fields.string({
+//             required: true,
+//             errorAfterField: true,
+//             cssClasses: {
+//                 label: ['form-label']
+//             },
+//             'validators':[validators.integer()]
+//         }),
+//         'description': fields.string({
+//             required: true,
+//             errorAfterField: true,
+//             cssClasses: {
+//                 label: ['form-label']
+//             }
+//         }),
+//     })
+// };
+
+// module.exports = { createProduct, bootstrapField };
+
+const createCountryForm = () => {
     return forms.create({
-        'name': fields.string({
+        'ID': fields.string({
             required: true,
             errorAfterField: true,
             cssClasses: {
                 label: ['form-label']
             }
         }),
-        'cost': fields.string({
+        'Name': fields.string({
             required: true,
             errorAfterField: true,
             cssClasses: {
                 label: ['form-label']
-            },
-            'validators':[validators.integer()]
+            }
         }),
-        'description': fields.string({
+        'Continent': fields.string({
             required: true,
             errorAfterField: true,
             cssClasses: {
@@ -50,5 +78,4 @@ const createProduct= () => {
         }),
     })
 };
-
-module.exports = { createProduct, bootstrapField };
+module.exports ={createCountryForm, bootstrapField}

@@ -28,17 +28,22 @@ app.use(
 
 //importing routes
 const landingPage = require('./routes/landing');
-const productPage= require('./routes/products')
+const productPage = require('./routes/products')
+const countryPage = require('./routes/country')
 
 async function main() {
-    app.use('/', landingPage);
-    app.use('/products', productPage)
+
+  // app.get('/', (req, res) => {
+  //   res.send("I'm Alive!!!!")
+  // })
+  app.use('/', landingPage);
+  app.use('/products', productPage)
+  app.use('/country',countryPage)
 }
-  
+
 
 main();
 
 app.listen(3000, () => {
-  console.log("Server has started");
+  console.log("I am a servant");
 });
-
