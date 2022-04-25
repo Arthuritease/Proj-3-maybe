@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-// #1 import in the Country model
+//import in the Country model
 const {
     Country
 } = require('../models')
@@ -11,6 +11,8 @@ const {
     createCountryForm
 } = require('../forms');
 
+
+// READ ALL COUNTRIES
 router.get('/', async (req, res) => {
     // #2 - fetch all the countries (ie, SELECT * from products)
     let country = await Country.collection().fetch();
@@ -19,6 +21,10 @@ router.get('/', async (req, res) => {
     })
 })
 
+
+//CREATE NEW COUNTRIES
+
+//rednering CREATE forms
 router.get('/create', async (req, res) => {
     const countryForm = createCountryForm();
     res.render('country/create', {
@@ -26,7 +32,7 @@ router.get('/create', async (req, res) => {
     })
 })
 
-
+//processing CREATE forms
 router.post('/create', async(req,res)=>{
     const countryForm = createCountryForm();
     countryForm.handle(req, {
@@ -47,6 +53,8 @@ router.post('/create', async(req,res)=>{
     })
 })
 
+//UPDATE COUNTRIES
+// extracting country with id and rendering form
 router.get('/:country_id/update', async (req, res) => {
     // retrieve the product
     const countryId = req.params.country_id
@@ -66,6 +74,33 @@ router.get('/:country_id/update', async (req, res) => {
     res.render('country/update', {
         'form': countryForm.toHTML(bootstrapField),
         'country': country.toJSON()
+    })
+
+})
+
+//processing UPDATE form
+router.post('/:country_id/update', async (req, res) => {
+    // retrieve the product
+    const countryId = req.params.country_id
+    const country = await Country.where({
+        'id': countryId
+    }).fetch({
+        require: true
+    });
+    const countryForm = createCountryForm();
+    countryForm.handle(req, {
+        'success': async (form) => {
+            country.set('country_title', form.data.Name); //like 'CREATE', you have to spell out which parameter of country to set
+            country.set('continent', form.data.Continent);
+            await country.save();
+            res.redirect('/country');
+        },
+        'error': async (form) => {
+            res.render('country/update' , {
+                'form': form.toHTML(bootstrapField),
+                'country': country.toJSON()
+            })
+        }
     })
 
 })
