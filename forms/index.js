@@ -26,14 +26,14 @@ var bootstrapField = function (name, object) {
 
 const createCountryForm = () => {
     return forms.create({
-        'ID': fields.string({
-            required: true,
-            errorAfterField: true,
-            cssClasses: {
-                label: ['form-label']
-            },
-            'validators':[validators.integer()]
-        }),
+        // 'ID': fields.string({
+        //     required: true,
+        //     errorAfterField: true,
+        //     cssClasses: {
+        //         label: ['form-label']
+        //     },
+        //     'validators':[validators.integer()]
+        // }),
         'Name': fields.string({
             required: true,
             errorAfterField: true,
