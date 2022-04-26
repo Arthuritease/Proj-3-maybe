@@ -105,7 +105,36 @@ router.post('/:country_id/update', async (req, res) => {
 
 })
 
+//DELETE countries with ID
 
+//Display a confirmation message for deletion
+
+router.get('/:country_id/delete', async(req,res)=>{
+    // fetch the product that we want to delete
+    const country = await Country.where({
+        'id': req.params.country_id
+    }).fetch({
+        require: true
+    });
+
+    res.render('country/delete', {
+        'country': country.toJSON()
+    })
+
+});
+
+//Processing the DELETE
+
+router.post('/:country_id/delete', async(req,res)=>{
+    // fetch the product that we want to delete
+    const country = await Country.where({
+        'id': req.params.country_id
+    }).fetch({
+        require: true
+    });
+    await country.destroy();
+    res.redirect('/country')
+})
 
 
 module.exports = router;

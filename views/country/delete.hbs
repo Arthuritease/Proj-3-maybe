@@ -1,0 +1,14 @@
+{{#extends 'base'}}
+
+{{#block 'content'}}
+<h1>Deleting {{country.name}}</h1>
+
+<form method="POST">
+    <div style="border: 2px solid black;padding:20px">{{!-- <div class="alert alert-danger"> --}}
+        <p>Are you sure you want to delete {{country.country_title}}</p>
+        <input type="submit" class="btn btn-dark" value="Yes"/>
+        <a href="/country" class="btn btn-success">NOOO SAVE ME!</a>
+    </div>
+</form>
+{{/block}}
+{{/extends}}
